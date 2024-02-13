@@ -1463,6 +1463,7 @@ export default async function build(
           rewrites: emptyRewritesObjToBeImplemented,
           pageEntrypoints: currentEntrypoints.page,
         })
+
         return {
           duration: process.hrtime(startTime)[0],
           buildTraceContext: undefined,

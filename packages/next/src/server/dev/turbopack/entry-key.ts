@@ -20,15 +20,15 @@ export function getEntryKey<
   return `${type}@${side}@${page}` satisfies EntryKey
 }
 
+/**
+ * Split an `EntryKey` up into its components.
+ */
 export function splitEntryKey<
-  Type extends EntryKeyType = EntryKeyType,
-  Side extends EntryKeySide = EntryKeySide,
-  Page extends string = string
+  Type extends EntryKeyType,
+  Side extends EntryKeySide,
+  Page extends string
 >(key: `${Type}@${Side}@${Page}`): [Type, Side, Page] {
-  // export function splitEntryKey(
-  //   key: EntryKey
-  // ): [EntryKeyType, EntryKeySide, string] {
-  const split = key.split('@')
+  const split = (key satisfies EntryKey).split('@', 3)
 
   if (split.length !== 3) {
     throw new Error(`invalid entry key: ${key}`)
