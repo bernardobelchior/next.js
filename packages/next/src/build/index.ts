@@ -172,6 +172,10 @@ import {
   type GlobalEntrypoints,
   type CurrentEntrypoints,
   type CurrentIssues,
+  handleRouteType,
+  handlePagesErrorRoute,
+} from '../server/dev/turbopack-utils'
+import {
   type BuildManifests,
   type AppBuildManifests,
   type PagesManifests,
@@ -180,10 +184,9 @@ import {
   type ActionManifests,
   type FontManifests,
   type LoadableManifests,
-  handleRouteType,
   writeManifests,
-  handlePagesErrorRoute,
-} from '../server/dev/turbopack-utils'
+} from '../server/dev/turbopack/manifest-loader'
+
 import { buildCustomRoute } from '../lib/build-custom-route'
 
 interface ExperimentalBypassForInfo {
